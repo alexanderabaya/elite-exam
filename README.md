@@ -13,3 +13,8 @@
 - php => 8.2.4
 - node => 20.12.1
 - mysql => 8.0.36
+
+
+# Accounts
+- username => admin
+- password => 12345
