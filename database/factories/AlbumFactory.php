@@ -21,7 +21,7 @@ class AlbumFactory extends Factory
             'sales' => $this->faker->numberBetween(10000, 999999),
             'date_released' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
             'last_update' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
-            'image' => $this->faker->image('app/public/database-image/album-image',400,400, null, false) ,
+            'image' => $this->faker->image(public_path('database-image/album-image/'),400,400, null, false) ,
         ];
     }
 }
