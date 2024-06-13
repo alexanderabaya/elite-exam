@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\CompanySuperAdminController;
 use App\Http\Controllers\DashboardController;
@@ -46,6 +47,15 @@ Route::group(['middleware' => ['auth', 'is_disabled']], function() {
     Route::get('/artist/edit/{id}', [ArtistController::class, 'edit'])->name('artist.edit');
     Route::post('/artist/update/{id}', [ArtistController::class, 'update'])->name('artist.update');
     Route::post('/artist/delete', [ArtistController::class, 'delete'])->name('artist.delete');
+
+    //Album
+    Route::get('/album/index', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('/album/create', [AlbumController::class, 'create'])->name('album.create');
+    Route::post('/album/store', [AlbumController::class, 'store'])->name('album.store');
+    Route::get('/album/show/{id}', [AlbumController::class, 'show'])->name('album.show');
+    Route::get('/album/edit/{id}', [AlbumController::class, 'edit'])->name('album.edit');
+    Route::post('/album/update/{id}', [AlbumController::class, 'update'])->name('album.update');
+    Route::post('/album/delete', [AlbumController::class, 'delete'])->name('album.delete');
 
 
 
