@@ -60,7 +60,7 @@
                     </form>
                 </div>
                 <div class="align-self-center">
-                    <a href="{{ route('artist.create') }}" class="btn btn-primary-custom text-white">
+                    <a href="{{ route('album.create', ['artist' => $artist->id]) }}" class="btn btn-primary-custom text-white" target="_blank">
                         <i class="fa-solid fa-plus me-2"></i>
                         Add Album
                     </a>

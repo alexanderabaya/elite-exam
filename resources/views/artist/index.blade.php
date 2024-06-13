@@ -36,6 +36,21 @@
             </div>
         </div>
 
+        <div class="row mb-3">
+            <div class="col-xl-4 col-md-4 col-12">
+                <div class="dashboard-counter shadow-sm bg-white p-3">
+                    <span class="text-muted d-block">Top Selling Artist</span>
+                    <a href="{{ route('artist.show', $topArtist->id) }}" class="link-primary-custom fs-3 fw-bold text-decoration-none mb-0">
+                        {{ $topArtist->name }}
+                    </a>
+                    <span class="d-block fs-1 fw-bold lh-1">
+                        {{ number_format($topArtist->album_sum_sales,2, '.', ',') }}
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="table-container">

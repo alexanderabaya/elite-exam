@@ -15,10 +15,16 @@ class ArtistController extends Controller
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 
+        //Select Top 1 Artist
+        $topArtist = Artist::withSum('album', 'sales')
+        ->orderBy('album_sum_sales', 'desc')
+        ->first();
+
         return view('artist.index',[
             'search' => $search,
             'artistCount' => $artistCount,
             'artists' => $artists,
+            'topArtist' => $topArtist
 
         ]);
     }
