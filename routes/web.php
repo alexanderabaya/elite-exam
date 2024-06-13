@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\CompanySuperAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -36,6 +37,17 @@ Route::group(['middleware' => ['auth', 'is_disabled']], function() {
     Route::get('/php-test/shortest-word', [PHPTestController::class, 'shortestWord'])->name('php-test.shortest-word');
     Route::get('/php-test/word-search', [PHPTestController::class, 'wordSearch'])->name('php-test.word-search');
     Route::get('/php-test/count-the-islands', [PHPTestController::class, 'countTheIslands'])->name('php-test.count-the-islands');
+
+    //Artist
+    Route::get('/artist/index', [ArtistController::class, 'index'])->name('artist.index');
+    Route::get('/artist/create', [ArtistController::class, 'create'])->name('artist.create');
+    Route::post('/artist/store', [ArtistController::class, 'store'])->name('artist.store');
+    Route::get('/artist/show/{id}', [ArtistController::class, 'show'])->name('artist.show');
+    Route::get('/artist/edit/{id}', [ArtistController::class, 'edit'])->name('artist.edit');
+    Route::post('/artist/update/{id}', [ArtistController::class, 'update'])->name('artist.update');
+    Route::post('/artist/delete', [ArtistController::class, 'delete'])->name('artist.delete');
+
+
 
     Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () {
 

@@ -26,23 +26,22 @@
                     </a>
                 </li>
 
-                @hasrole('Super Admin')
-                    <li class="fs-6 mb-2">
-                        <a href="{{ route('superadmin.company.index') }}"
-                        class="sidebar-menu-item {{ Request::is('super-admin/company*', 'company') ? 'active' : '' }}">
-                        <i class="fa-solid fa-building-user"></i>
-                            <span class="ms-2 sidebar-text">Companies</span>
-                        </a>
-                    </li>
+                <li class="fs-6 mb-2">
+                    <a href="{{ route('artist.index') }}"
+                        class="sidebar-menu-item {{ Request::is('artist') ? 'active' : '' }}">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span class="ms-2 sidebar-text">Artist</span>
+                    </a>
+                </li>
 
-                    <li class="fs-6 mb-2">
-                        <a href="{{ route('superadmin.user.index') }}"
-                        class="sidebar-menu-item {{ Request::is('super-admin/user*', 'user') ? 'active' : '' }}">
-                        <i class="fa-solid fa-users"></i>
-                            <span class="ms-2 sidebar-text">Users</span>
-                        </a>
-                    </li>
-                @endrole
+                <li class="fs-6 mb-2">
+                    <a href="{{ route('dashboard.index') }}"
+                        class="sidebar-menu-item {{ Request::is('album') ? 'active' : '' }}">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span class="ms-2 sidebar-text">Albums</span>
+                    </a>
+                </li>
+
 
                 <li class="fs-6 mb-2">
                     <a href="{{ route('profile.index') }}" class="sidebar-menu-item {{ Request::is('profile*', 'profile') ? 'active' : '' }}">

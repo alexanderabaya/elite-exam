@@ -18,7 +18,7 @@ class ArtistAlbumSeeder extends Seeder
         $artistAlbums = ArtistAlbum::all();
 
         foreach($artistAlbums as $artistAlbum){
-            $artist = ArtistAlbum::where('artist', $artistAlbum->artist)->first();
+            $artist = Artist::where('name', $artistAlbum->artist)->first();
             if(!$artist){
                 $artist = Artist::factory()->create([
                     'name' => $artistAlbum->artist,
