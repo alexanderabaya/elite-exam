@@ -57,8 +57,6 @@ Route::group(['middleware' => ['auth', 'is_disabled']], function() {
     Route::post('/album/update/{id}', [AlbumController::class, 'update'])->name('album.update');
     Route::post('/album/delete', [AlbumController::class, 'delete'])->name('album.delete');
 
-
-
     Route::group(['middleware' => ['role:Admin'], 'prefix' => 'admin'], function () {
 
     });
