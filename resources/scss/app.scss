@@ -1,0 +1,51 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+// [x-cloak] {
+//     display: none;
+// }
+
+
+[x-cloak] {
+    display: none;
+}
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// Override Bootstrap's grid system variables
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  sxl: 1600px, // Add your custom breakpoint here
+);
+
+
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+  sxl: 1500px, // Add your custom max-width here
+);
+
+$custom-theme-colors: (
+  primary-custom:#f55247,
+  secondary-custom:#a5a5a5,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';

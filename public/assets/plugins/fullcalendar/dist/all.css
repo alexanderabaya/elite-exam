@@ -1,0 +1,47 @@
+.fc-daygrid-day-number {
+    text-decoration: none !important;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.fc-col-header-cell .fc-scrollgrid-sync-inner{
+    background: var(--primary-color);
+}
+
+.fc-prev-button.fc-button.fc-button-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.fc-next-button.fc-button.fc-button-primary {
+    background: var(--primary-color);
+    color:white;
+}
+
+.fc-today-button.fc-button.fc-button-primary{
+    background: var(--primary-color);
+    color: white;
+}
+
+.fc-today-button.fc-button.fc-button-primary:focus{
+    background: var(--primary-color);
+    color: white;
+}
+
+.fc-col-header-cell-cushion {
+    text-decoration: none !important;
+    font-weight: bold;
+    color: white;
+}
+
+.fc-daygrid-day-events {
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .fc-toolbar.fc-header-toolbar {
+        font-size: 80%
+    }
+}
+
+@media screen and (max-width:767px) { }

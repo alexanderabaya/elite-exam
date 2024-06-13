@@ -1,0 +1,41 @@
+.profile-container .lodge-list-container .lodge-item {
+    display: flex;
+}
+.profile-container .lodge-list-container .lodge-item .lodge-image {
+    height: 130px;
+    width: 130px;
+    margin-right: 1.25rem;
+}
+
+.profile-container .lodge-list-container .lodge-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .profile-container .lodge-list-container .lodge-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-container .lodge-list-container .lodge-item .lodge-image {
+        height: 130px;
+        width: 130px;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .profile-container .lodge-list-container .lodge-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .profile-container .lodge-list-container .lodge-buttons button{
+        margin-bottom: 1rem;
+    }
+
+    .profile-container .lodge-list-container .lodge-buttons .me-2 {
+        margin-right: 0 !important;
+    }
+}
