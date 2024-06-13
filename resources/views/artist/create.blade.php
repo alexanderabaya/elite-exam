@@ -17,7 +17,7 @@
 @section('content')
     <div class="content-section">
         <div class="content-header mb-3">
-            <h4 class="mb-0">Add a Artist</h4>
+            <h4 class="mb-0">Add an Artist</h4>
             <small class="text-muted">Please fill up the following:</small>
         </div>
         <div class="bg-white rounded p-4 shadow-sm ">
@@ -26,7 +26,7 @@
                 <div class="col-sxl-7 col-xxl-8 col-xl-12 col-md-12 col-12 row">
                     <div class="mb-3">
                         <label for="" class="form-label">Artist Code <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Enter Artist Code" name="code" autofocus>
+                        <input type="text" class="form-control" placeholder="Enter Artist Code" value="{{ old('code') }}" name="code" autofocus>
                         @error('code')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -34,11 +34,12 @@
 
                     <div class="mb-3">
                         <label for="" class="form-label">Artist Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Enter Artist Name" name="name">
+                        <input type="text" class="form-control" placeholder="Enter Artist Name" value="{{ old('name') }}" name="name">
                         @error('name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+
                     <div class="d-flex justify-content-start">
                         <button type="submit" class="btn bg-primary-custom text-white">Submit</button>
                     </div>
@@ -50,5 +51,5 @@
 @endsection
 
 @section('scripts')
-    @stack('scripts')
+
 @endsection

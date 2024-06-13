@@ -18,7 +18,7 @@
 @section('content')
     <div class="content-section">
         <h3 class="mb-3 fw-bold">{{ $artist->name }} Overview</h3>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-xl-4 col-md-4 col-12">
                 <div class="dashboard-counter shadow-sm bg-white px-4 d-flex">
                     <div class="d-flex justify-content-between flex-grow-1">
@@ -107,26 +107,32 @@
                                 <td>{{ date('F d, Y', strtotime($album->last_updated)) }}</td>
                                 <td class="fit-to-cell">
                                     <div class="d-flex justify-content-center fs-5">
-                                        <a href="{{ route('artist.edit', $album->id) }}" class="text-dark ms-3" title="Edit">
+                                        <a href="{{ route('album.show', $album->id) }}" class="text-dark" title="View" target="_blank">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+
+                                        <a href="{{ route('album.edit', $album->id) }}" class="text-dark ms-3" title="Edit" target="_blank">
                                             <i class="fa-solid fa-pen-to-square"> </i>
                                         </a>
 
-                                        <a href="" class="text-dark ms-3" title="Delete">
+                                        <button type="button" class="text-dark ms-3" title="Delete" data-bs-toggle="modal" data-bs-target="#delete-album"
+                                            data-id="{{ $album->id }}"
+                                            data-name="{{ $album->name }}">
                                             <i class="fa-solid fa-trash-can"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="text-center">
+                                <td colspan="5" class="text-center">
                                     No results on "<b>{{ $search }}</b>"
                                 </td>
                             </tr>
                         @endforelse
                     @else
                         <tr>
-                            <td colspan="4" class="text-center">
+                            <td colspan="5" class="text-center">
                                 No Data Available
                             </td>
                         </tr>
@@ -140,8 +146,23 @@
             {{ $albums->links() }}
         </div>
     </div>
+    @include('artist.modals.delete-album')
 @endsection
 
 @section('scripts')
-    @stack('scripts')
+    <script>
+        $('#delete-album').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var name = button.data('name')
+            var modal = $(this)
+            $('#album-id-input').val(id);
+            $('#album-name').text(name);
+        });
+
+        $('#delete-album').on('hide.bs.modal', function (event) {
+            $('#album-id-input').val("");
+            $('#album-name').text("");
+        });
+    </script>
 @endsection

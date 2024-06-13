@@ -12,7 +12,7 @@ class ArtistController extends Controller
         $search = $request->input('search');
         $artistCount = Artist::all()->count();
         $artists =  Artist::where('name', 'like', '%'.$search.'%')
-        ->orderBy('created_at', 'asc')
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return view('artist.index',[
@@ -51,7 +51,7 @@ class ArtistController extends Controller
         $albumCount = Album::where('artist_id', $artist->id)->count();
         $albums =  Album::where('name', 'like', '%'.$search.'%')
         ->where('artist_id', $artist->id)
-        ->orderBy('created_at', 'asc')
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
 
@@ -94,11 +94,22 @@ class ArtistController extends Controller
         return redirect()->route('artist.show', $artist->id);
     }
 
-    public function destroy(Request $request){
+    public function delete(Request $request){
         $artist = Artist::where('id', $request->input('id'))->first();
         if(!$artist){
             abort(404);
         }
+
+        $albums = Album::where('artist_id', $artist->id)->get();
+        foreach($albums as $album){
+            if($album->image){
+                if (file_exists(public_path('database-image/album-image/'.$album->image))) {
+                    unlink('database-image/album-image/'.$album->image);
+                }
+            }
+            Album::where('id', $album->id)->delete();
+        }
+
         Artist::where('id', $artist->id)->delete();
 
         alert()->success('Success', 'Artist Deleted Successfully.')->showConfirmButton('Okay', '#f55247');

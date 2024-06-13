@@ -14,7 +14,30 @@
 
 @section('content')
     <div class="content-section">
-        @livewire('dashboard')
+        {{-- @livewire('dashboard') --}}
+        <div class="row">
+            <div class="col-3">
+                <div class="bg-white p-3 shadow-sm border rounded-3">
+                    <h5 class="fw-bold">PHP Test</h5>
+                    <ol>
+                        <li><a href="{{ route('php-test.shortest-word') }}" class="link-primary-custom" target="_blank">Shortest Word</a></li>
+                        <li><a href="{{ route('php-test.shortest-word') }}" class="link-primary-custom" target="_blank">Count the  Islands</a></li>
+                        <li><a href="{{ route('php-test.shortest-word') }}" class="link-primary-custom" target="_blank">Word Search</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="bg-white p-3 shadow-sm border rounded-3">
+                    <h5 class="fw-bold">Mysql Test</h5>
+                    <ol>
+                        <li><a href="{{ route('php-test.shortest-word') }}" class="link-primary-custom" target="_blank">Shortest Word</a></li>
+                        <li><a href="{{ route('php-test.shortest-word') }}" class="link-primary-custom" target="_blank">Count the  Islands</a></li>
+                        <li><a href="{{ route('php-test.shortest-word') }}" class="link-primary-custom" target="_blank">Word Search</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

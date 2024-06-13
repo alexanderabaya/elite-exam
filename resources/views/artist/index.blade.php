@@ -65,9 +65,11 @@
                                             <i class="fa-solid fa-pen-to-square"> </i>
                                         </a>
 
-                                        <a href="" class="text-dark ms-3" title="Delete">
+                                        <button type="button" class="text-dark ms-3" title="Delete" data-bs-toggle="modal" data-bs-target="#delete-artist"
+                                            data-id="{{ $artist->id }}"
+                                            data-name="{{ $artist->name }}">
                                             <i class="fa-solid fa-trash-can"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -94,8 +96,24 @@
             {{ $artists->links() }}
         </div>
     </div>
+    @include('artist.modals.delete-artist')
 @endsection
 
 @section('scripts')
-    @stack('scripts')
+    <script>
+        $('#delete-artist').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var name = button.data('name')
+            var modal = $(this)
+            $('#artist-id-input').val(id);
+            $('#artist-name').text(name);
+        });
+
+        $('#delete-artist').on('hide.bs.modal', function (event) {
+            $('#artist-id-input').val("");
+            $('#artist-name').text("");
+        });
+
+    </script>
 @endsection

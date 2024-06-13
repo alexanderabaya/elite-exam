@@ -28,16 +28,16 @@
 
                 <li class="fs-6 mb-2">
                     <a href="{{ route('artist.index') }}"
-                        class="sidebar-menu-item {{ Request::is('artist') ? 'active' : '' }}">
+                        class="sidebar-menu-item {{ Request::is('artist*', 'artist') ? 'active' : '' }}">
                         <i class="fa-solid fa-headphones"></i>
                         <span class="ms-2 sidebar-text">Artist</span>
                     </a>
                 </li>
 
                 <li class="fs-6 mb-2">
-                    <a href="{{ route('dashboard.index') }}"
-                        class="sidebar-menu-item {{ Request::is('album') ? 'active' : '' }}">
-                        <i class="fa-solid fa-headphones"></i>
+                    <a href="{{ route('album.index') }}"
+                        class="sidebar-menu-item {{ Request::is('album*', 'album') ? 'active' : '' }}">
+                        <i class="fa-solid fa-compact-disc"></i>
                         <span class="ms-2 sidebar-text">Albums</span>
                     </a>
                 </li>

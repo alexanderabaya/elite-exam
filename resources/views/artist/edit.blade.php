@@ -27,7 +27,7 @@
                 <div class="col-sxl-7 col-xxl-8 col-xl-12 col-md-12 col-12 row">
                     <div class="mb-3">
                         <label for="" class="form-label">Artist Code <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Enter Artist Code" name="code" value="{{ $artist->code }}" autofocus>
+                        <input type="text" class="form-control" placeholder="Enter Artist Code" name="code" value="{{ old('code' , $artist->code) }}" autofocus>
                         @error('code')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -35,7 +35,7 @@
 
                     <div class="mb-3">
                         <label for="" class="form-label">Artist Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Enter Artist Name" name="name" value="{{ $artist->name }}">
+                        <input type="text" class="form-control" placeholder="Enter Artist Name" name="name" value="{{  old('name' , $artist->name) }}">
                         @error('name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

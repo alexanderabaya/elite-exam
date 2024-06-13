@@ -11,9 +11,4 @@ class DashboardController extends Controller
     public function index(){
         return view('dashboard');
     }
-
-    public function redirectAlert($type,$title,$message,$buttonText,$route,$parameters = null){
-        alert($title, $message, $type)->showConfirmButton($buttonText, '#f55247');
-        return redirect()->route($route,$parameters);
-    }
 }
