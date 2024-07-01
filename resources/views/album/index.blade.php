@@ -114,7 +114,7 @@
         </div>
 
         <div class="">
-            {{ $albums->links() }}
+            {{ $albums->onEachSide(0)->links() }}
         </div>
         @include('album.modals.delete-album')
     </div>

@@ -90,11 +90,11 @@ class ArtistController extends Controller
             'name' => 'required|max:255|unique:artist,code,'.$artist->id,
         ]);
 
-        // Artist::where('id', $artist->id)
-        // ->update([
-        //     'code' => $request->input('code'),
-        //     'name' => $request->input('name'),
-        // ]);
+        Artist::where('id', $artist->id)
+        ->update([
+            'code' => $request->input('code'),
+            'name' => $request->input('name'),
+        ]);
 
         alert()->success('Success', 'Artist Updated Successfully.')->showConfirmButton('Okay', '#f55247');
         return redirect()->route('artist.show', $artist->id);
